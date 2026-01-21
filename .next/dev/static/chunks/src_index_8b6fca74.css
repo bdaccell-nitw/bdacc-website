@@ -305,6 +305,14 @@ img, video {
   height: 100%;
 }
 
+.max-h-32 {
+  max-height: 8rem;
+}
+
+.max-h-40 {
+  max-height: 10rem;
+}
+
 .w-80 {
   width: 20rem;
 }
@@ -347,6 +355,14 @@ img, video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-2xl {
@@ -446,6 +462,15 @@ img, video {
 
 .duration-700 {
   transition-duration: .7s;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 .\[backface-visibility\:hidden\] {

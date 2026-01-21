@@ -19,7 +19,15 @@ export default async function ProjectsPage() {
       <h1 className="text-4xl font-bold">Our Projects</h1>
       <div className="flex flex-wrap gap-8 justify-center ">
         {projects?.map((project) => (
-          <ProjectCard key={project.id} {...project} />
+          <ProjectCard
+            key={project.id}
+            title={project["Project Title"]}
+            description={project.Description}
+            category={project.category}
+            details={project.Details}
+            githubLink={project["Github link"]}
+            visitLink={project["live website"]}
+          />
         ))}
       </div>
     </main>
