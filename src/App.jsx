@@ -1,4 +1,5 @@
 import HeroAI from './components/HeroAI';
+import Contact from "./components/contact";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <a href="#" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
           <a href="#" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
           <a href="#" className="hover:text-blue-400 transition-colors">[MEMBERS]</a>
-          <a href="#" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
+          <a href="#contact" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
         </div>
       </nav>
 
@@ -84,9 +85,12 @@ function App() {
 
     </div>
 </div>
-
+      
       </div>
-
+{/* CONTACT */}
+      <div className="relative z-10 pointer-events-auto">
+        <Contact />
+      </div>
       {/* Bottom Fade */}
       <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-[#050510] via-[#050510]/80 to-transparent z-0 pointer-events-none"></div>
       
