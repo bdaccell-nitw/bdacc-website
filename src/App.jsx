@@ -1,7 +1,10 @@
-import ThreeTest from "./components/three";
+import Events from "./pages/Events";
+
+
 
 function App() {
-  return <ThreeTest />;
+  
+  return <Events />;
 }
 
 export default App;
