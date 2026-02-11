@@ -1,7 +1,11 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeroAI from "./components/HeroAI";
 import Contact from "./components/contact";
 import Members from "./pages/Members";
+import Events from "./pages/Events";
+
+/* ---------------- HOME ---------------- */
 
 function Home() {
   return (
@@ -16,7 +20,7 @@ function Home() {
           BDACC
         </div>
         <div className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
-          <a href="#" className="hover:text-blue-400 transition-colors">[EVENTS]</a>
+          <a href="/events" className="hover:text-blue-400 transition-colors">[EVENTS]</a>
           <a href="#" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
           <a href="#" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
           <a href="/members" className="hover:text-blue-400 transition-colors">[MEMBERS]</a>
@@ -44,14 +48,6 @@ function Home() {
             Data <span className="text-blue-300 px-2">•</span> Analytics <span className="text-blue-300 px-2">•</span> Consulting
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-5 pointer-events-auto">
-            <button className="group relative px-8 py-3.5 bg-blue-800 font-bold tracking-wider hover:bg-blue-700 transition-all">
-              EXPLORE
-            </button>
-            <button className="group relative px-8 py-3.5 bg-blue-800 font-bold tracking-wider hover:bg-blue-700 transition-all">
-              ABOUT US
-            </button>
-          </div>
         </div>
 
         <div className="w-full max-w-5xl pb-12 shrink-0">
@@ -72,6 +68,8 @@ function Home() {
   );
 }
 
+/* ---------------- STATS ---------------- */
+
 function StatItem({ number, label }) {
   return (
     <div className="flex flex-col items-center justify-center p-4 border border-white/5 bg-white/5 backdrop-blur-sm">
@@ -81,15 +79,19 @@ function StatItem({ number, label }) {
   );
 }
 
+/* ---------------- APP ROUTER ---------------- */
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/members" element={<Members />} />
+        <Route path="/events" element={<Events />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+
