@@ -4,6 +4,8 @@ import HeroAI from "./components/HeroAI";
 import Contact from "./components/contact";
 import Members from "./pages/Members";
 import Events from "./pages/Events";
+import Blogs from "./pages/Blogs";
+import ProjectsPage from "./pages/Projects";
 
 /* ---------------- HOME ---------------- */
 
@@ -21,8 +23,8 @@ function Home() {
         </div>
         <div className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
           <a href="/events" className="hover:text-blue-400 transition-colors">[EVENTS]</a>
-          <a href="#" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
-          <a href="#" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
+          <a href="/blogs" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
+          <a href="/projects" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
           <a href="/members" className="hover:text-blue-400 transition-colors">[MEMBERS]</a>
           <a href="#contact" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
         </div>
@@ -88,6 +90,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/members" element={<Members />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/projects" element={<ProjectsPage />} />
       </Routes>
     </BrowserRouter>
   );
