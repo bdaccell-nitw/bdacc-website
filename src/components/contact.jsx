@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Mail, Instagram, Github, Linkedin } from "lucide-react";
 
 function Contact() {
   const formRef = useRef(null);
@@ -14,9 +15,18 @@ function Contact() {
     setStatus({ state: "sending", message: "Transmitting..." });
 
     try {
-      const SERVICE_ID = "meoww";
-      const TEMPLATE_ID = "meow";
-      const PUBLIC_KEY = "meo";
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        console.error("Missing EmailJS environment variables");
+        setStatus({
+          state: "error",
+          message: "Email service is not configured. Please try again later.",
+        });
+        return;
+      }
 
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
         publicKey: PUBLIC_KEY,
@@ -25,7 +35,7 @@ function Contact() {
       setStatus({ state: "success", message: "Message sent ✅" });
       formRef.current.reset();
     } catch (err) {
-      console.error(err);
+      console.error("EmailJS error:", err?.status, err?.text || err);
       setStatus({ state: "error", message: "Failed to send ❌" });
     }
   };
@@ -45,23 +55,45 @@ function Contact() {
               <h3 className="text-lg font-semibold mb-3">Contact info</h3>
 
               <div className="space-y-4 text-sm">
-                <InfoRow label="Email" value="kitty@meow.com" />
-                <InfoRow label="Phone" value="+91 11122 33444" />
+                <InfoRow label="Email" value="bdacc_club@nitw.ac.in" />
+                <InfoRow label="Phone" value="+91- 76740 34282" />
                 <InfoRow label="Location" value="NIT WARANGAL" />
               </div>
 
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href="mailto:bdacc@example.com"
-                  className="px-4 py-2 rounded-xl border border-blue-400/40 text-blue-300 hover:bg-blue-500/10 transition font-mono text-xs tracking-widest"
+                  href="mailto:bdacc_club@nitw.ac.in"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-red-500 via-amber-400 to-green-400 text-white shadow-md hover:shadow-lg hover:brightness-110 transition text-xs font-mono tracking-widest"
                 >
-                  EMAIL
+                  <Mail className="w-4 h-4" aria-hidden="true" />
+                  <span>GMAIL</span>
                 </a>
                 <a
-                  href="#"
-                  className="px-4 py-2 rounded-xl border border-white/10 text-slate-300 hover:bg-white/5 transition font-mono text-xs tracking-widest"
+                  href="https://www.instagram.com/bdacc_nitw/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 via-rose-500 to-yellow-400 text-white shadow-md hover:shadow-lg hover:brightness-110 transition text-xs font-mono tracking-widest"
                 >
-                  INSTAGRAM
+                  <Instagram className="w-4 h-4" aria-hidden="true" />
+                  <span>@bdacc_club</span>
+                </a>
+                <a
+                  href="https://github.com/bdaccell-nitw"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-slate-100 border border-slate-600 shadow-md hover:bg-slate-800 hover:border-slate-400 transition text-xs font-mono tracking-widest"
+                >
+                  <Github className="w-4 h-4" aria-hidden="true" />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/bdacc-nitw/posts/?feedView=all"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0a66c2] text-white shadow-md hover:bg-[#004182] transition text-xs font-mono tracking-widest"
+                >
+                  <Linkedin className="w-4 h-4" aria-hidden="true" />
+                  <span>LinkedIn</span>
                 </a>
               </div>
             </div>
@@ -82,13 +114,7 @@ function Contact() {
 
               <div className="mt-5 flex flex-wrap gap-3">
                 <a
-                  href="#"
-                  className="px-5 py-2.5 rounded-xl bg-blue-500/20 border border-blue-400/40 text-blue-200 hover:bg-blue-500/30 transition font-mono text-xs tracking-widest"
-                >
-                  APPLY NOW
-                </a>
-                <a
-                  href="#"
+                  href="/members"
                   className="px-5 py-2.5 rounded-xl border border-white/10 text-slate-300 hover:bg-white/5 transition font-mono text-xs tracking-widest"
                 >
                   VIEW TEAM
