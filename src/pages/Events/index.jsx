@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import EventsList from "./EventsList";
+import HeroAI from "../../components/HeroAI";
 
 const EVENTS = [
   {
@@ -55,9 +56,12 @@ export default function EventsPage() {
   const pastEvents = filteredEvents.filter((e) => new Date(e.date) < new Date());
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#020b1c] via-[#04132d] to-[#020b1c] px-6 py-20 text-white">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto">
+    <main className="relative min-h-screen w-full bg-[#050510] text-white overflow-hidden font-sans selection:bg-blue-500/30">
+      <HeroAI />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
           <h1 className="text-4xl font-bold tracking-wide text-[#6fffe9]">
             Events
@@ -153,6 +157,6 @@ export default function EventsPage() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }

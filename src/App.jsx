@@ -1,5 +1,4 @@
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HeroAI from "./components/HeroAI";
 import Contact from "./components/contact";
 import Members from "./pages/Members";
@@ -18,9 +17,12 @@ function Home() {
 
       {/* Cyber-Nav */}
       <nav className="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-20 border-b border-white/5 bg-black/20 backdrop-blur-sm">
-        <div className="text-xl font-bold tracking-widest text-blue-400 font-mono">
+        <a
+          href="/"
+          className="text-xl font-bold tracking-widest text-blue-400 font-mono hover:text-blue-300 transition-colors"
+        >
           BDACC
-        </div>
+        </a>
         <div className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
           <a href="/events" className="hover:text-blue-400 transition-colors">[EVENTS]</a>
           <a href="/blogs" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
@@ -85,15 +87,11 @@ function StatItem({ number, label }) {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/members" element={<Members />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/members" element={<Members />} />
+      <Route path="/events" element={<Events />} />
+    </Routes>
   );
 }
 
