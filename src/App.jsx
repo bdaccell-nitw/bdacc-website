@@ -1,15 +1,16 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import HeroAI from "./components/HeroAI";
 import Contact from "./components/contact";
 import Members from "./pages/Members";
 import Events from "./pages/Events";
+import ProjectsPage from './pages/Projects';
 
 /* ---------------- HOME ---------------- */
 
 function Home() {
   return (
     <main className="relative min-h-screen w-full bg-[#050510] text-white overflow-hidden font-sans selection:bg-blue-500/30">
-      
+
       {/* HERO COMPONENT */}
       <HeroAI />
 
@@ -17,14 +18,14 @@ function Home() {
       <nav className="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-20 border-b border-white/5 bg-black/20 backdrop-blur-sm">
         <a
           href="/"
-          className="text-xl font-bold tracking-widest text-blue-400 font-mono hover:text-blue-300 transition-colors"
+          className="text-xl font-bold tracking-widest text-blue-400 font-mono hover:text-blue-300 transition-colors relative z-30"
         >
           BDACC
         </a>
         <div className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
           <a href="/events" className="hover:text-blue-400 transition-colors">[EVENTS]</a>
           <a href="#" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
-          <a href="#" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
+          <a href="/projects" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
           <a href="/members" className="hover:text-blue-400 transition-colors">[MEMBERS]</a>
           <a href="#contact" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
         </div>
@@ -32,11 +33,11 @@ function Home() {
 
       {/* MAIN CONTAINER */}
       <div className="relative z-10 flex flex-col items-center justify-between min-h-screen px-4 pointer-events-none">
-        
+
         <div className="h-20 shrink-0"></div>
 
         <div className="flex-1 flex flex-col items-center justify-center text-center max-w-4xl w-full">
-          
+
           <div className="mb-6 px-3 py-1 border border-blue-500/30 bg-blue-900/10 text-blue-300 text-[10px] font-mono tracking-[0.3em] uppercase backdrop-blur-md">
             Neural Network Online
           </div>
@@ -85,11 +86,14 @@ function StatItem({ number, label }) {
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/members" element={<Members />} />
-      <Route path="/events" element={<Events />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/members" element={<Members />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
