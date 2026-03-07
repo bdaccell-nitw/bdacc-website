@@ -12,7 +12,7 @@ const PROJECTS_DATA = [
     "category": "Web Development",
     "Details": "Built using React, Tailwind CSS, and Framer Motion with Three.js integration for neural network visualizations.",
     "Github link": "https://github.com/bdaccell-nitw/bdacc-website.git",
-    "live website": "#"
+    "live website": "/"
   },
   {
     id: 2,
@@ -21,6 +21,7 @@ const PROJECTS_DATA = [
     "category": "Artificial Intelligence",
     "Details": "Features an Analytics Layer for tracking response metrics and an Agent Layer utilizing LLMs for context-aware drafting and action automation.",
     "Github link": "https://github.com/bdaccell-nitw/email-intelligence-agent.git",
+    "live website": null
   }
 ]
 
