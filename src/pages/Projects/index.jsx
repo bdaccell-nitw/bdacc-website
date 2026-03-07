@@ -1,30 +1,37 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../../lib/supabaseClient';
 import ProjectCard from '../../components/ProjectCard';
 import HeroAI from '../../components/HeroAI';
 import CyberNav from '../../components/CyberNav';
 import LoadingScreen from '../../components/LoadingScreen';
+
+const PROJECTS_DATA = [
+  {
+    id: 1,
+    "Project Title": "BDACC Official Website",
+    "Description": "A high-performance, cyber-themed website of the club showcasing our events, blogs, projects, and members",
+    "category": "Web Development",
+    "Details": "Built using React, Tailwind CSS, and Framer Motion with Three.js integration for neural network visualizations.",
+    "Github link": "https://github.com/bdaccell-nitw/bdacc-website.git",
+    "live website": "/"
+  },
+  {
+    id: 2,
+    "Project Title": "Email Intelligence Agent",
+    "Description": "An advanced two-tier system for email analytics and autonomous response generation.",
+    "category": "Artificial Intelligence",
+    "Details": "Features an Analytics Layer for tracking response metrics and an Agent Layer utilizing LLMs for context-aware drafting and action automation.",
+    "Github link": "https://github.com/bdaccell-nitw/email-intelligence-agent.git",
+    "live website": null
+  }
+]
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data, error } = await supabase.from('Projects').select('*');
-        if (error) throw error;
-        setProjects(data);
-      } catch (err) {
-        console.error('Supabase error:', err);
-      } finally {
-        // Add a slight delay (e.g., 1.5s) so the loader doesn't "flash" too fast
-        // and Three.js has a moment to initialize
-        setTimeout(() => setIsLoading(false), 600);
-      }
-    };
-
-    fetchData();
+    const timer = setTimeout(() => setIsLoading(false), 800);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -47,7 +54,7 @@ export default function ProjectsPage() {
             </p>
 
             <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-              {projects?.map((project) => (
+              {PROJECTS_DATA.map((project) => (
                 <div key={project.id} className="w-full max-w-sm">
                   <ProjectCard
                     title={project["Project Title"]}
