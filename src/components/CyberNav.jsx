@@ -12,8 +12,8 @@ export default function CyberNav() {
         <a href="/projects" className="hover:text-blue-400 transition-colors">
           [PROJECTS]
         </a>
-        <a href="#" className="hover:text-blue-400 transition-colors">[MEMBERS]</a>
-        <a href="#" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
+        <a href="/members" className="hover:text-blue-400 transition-colors">[MEMBERS]</a>
+        <a href="/orojects" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
       </div>
     </nav>
   )
