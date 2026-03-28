@@ -4,9 +4,6 @@ import { Globe } from 'lucide-react';
 export default function ProjectCard({ title, description, category, details, githubLink, visitLink }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  // Note: I'm using [#06b6d4] as a substitute for your brand-accent. 
-  // Change this hex code to your specific brand color if it's different!
-
   return (
     <div
       className="group h-[400px] w-80 [perspective:1000px] cursor-pointer hover:scale-[1.02] transition-all shadow-lg"
