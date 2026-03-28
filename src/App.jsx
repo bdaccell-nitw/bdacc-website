@@ -25,7 +25,7 @@ function Home() {
         <div className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
           <Link to="/events" className="hover:text-blue-400 transition-colors">[EVENTS]</Link>
           <a href="#" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
-          <a href="#" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
+          <a href="/projects" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
           <Link to="/members" className="hover:text-blue-400 transition-colors">[MEMBERS]</Link>
           <a href="#contact" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
         </div>
@@ -86,12 +86,12 @@ function StatItem({ number, label }) {
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/members" element={<Members />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/members" element={<Members />} />
+      <Route path="/events" element={<Events />} />
+      <Route path="/projects" element={<ProjectsPage />} />
+    </Routes>
   );
 }
 
