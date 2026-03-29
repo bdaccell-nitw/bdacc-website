@@ -3,6 +3,8 @@ import HeroAI from "./components/HeroAI";
 import Contact from "./components/contact";
 import Members from "./pages/Members";
 import Events from "./pages/Events";
+import Blogs from "./pages/Blogs";
+import ProjectsPage from "./pages/Projects";
 
 /* ---------------- HOME ---------------- */
 
@@ -23,10 +25,11 @@ function Home() {
         </Link>
         <div className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
           <Link to="/events" className="hover:text-blue-400 transition-colors">[EVENTS]</Link>
-          <a href="#" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
-          <a href="#" className="hover:text-blue-400 transition-colors">[PROJECTS]</a>
-          <Link to="/members" className="hover:text-blue-400 transition-colors">[MEMBERS]</Link>
-          <a href="#contact" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
+<Link to="/blogs" className="hover:text-blue-400 transition-colors">[BLOGS]</Link>
+<Link to="/projects" className="hover:text-blue-400 transition-colors">[PROJECTS]</Link>
+<Link to="/members" className="hover:text-blue-400 transition-colors">[MEMBERS]</Link>
+<a href="#contact" className="hover:text-blue-400 transition-colors">[CONTACT]</a>
+         
         </div>
       </nav>
 
@@ -89,6 +92,8 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/members" element={<Members />} />
       <Route path="/events" element={<Events />} />
+      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/contact" element={<Contact/>}/>
     </Routes>
   );
 }
