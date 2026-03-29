@@ -7,8 +7,8 @@ export default function CyberNav() {
         BDACC
       </a>
       <div className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
-        <a href="#" className="hover:text-blue-400 transition-colors">[EVENTS]</a>
-        <a href="#" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
+        <a href="/events" className="hover:text-blue-400 transition-colors">[EVENTS]</a>
+        <a href="/blogs" className="hover:text-blue-400 transition-colors">[BLOGS]</a>
         <a href="/projects" className="hover:text-blue-400 transition-colors">
           [PROJECTS]
         </a>
