@@ -59,7 +59,7 @@
 //   return (
 //     <div className="min-h-screen bg-gray-50 px-6 py-12">
 //       <div className="max-w-7xl mx-auto">
-        
+
 //         {/* Page heading */}
 //         <h1 className="text-4xl font-bold text-blue-900 text-center mb-12">
 //           Our Team
@@ -319,7 +319,7 @@ function Navbar() {
         <a href="#" className="hover:text-blue-400 transition-colors">
           [BLOGS]
         </a>
-        <a href="#" className="hover:text-blue-400 transition-colors">
+        <a href="/projects" className="hover:text-blue-400 transition-colors">
           [PROJECTS]
         </a>
         <a href="/members" className="hover:text-blue-400 transition-colors">
